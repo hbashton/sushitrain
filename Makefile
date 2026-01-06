@@ -19,7 +19,7 @@ CODESIGN_IDENTITY="Apple Development: Tommy van der Vorst (NG3J47D2S7)"
 KEYCHAIN_PASSWORD="not so secret"
 
 # Apple developer team ID (must match certificate and provisioning profile)
-TEAM_ID=2N89DJPQ2P
+TEAM_ID=NG3J47D2S7
 
 # UUID of Assets/synctrain-ios-ci.mobileprovision
 PROVISIONING_PROFILE_UUID_IOS=$(shell security cms -D -i ./Assets/synctrain-ios-ci.mobileprovision | plutil -extract UUID raw -)
