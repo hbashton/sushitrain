@@ -74,9 +74,8 @@ mac: core provisioning
 		-destination generic/platform=macOS \
 		CODE_SIGN_IDENTITY=$(CODESIGN_IDENTITY) \
 		OTHER_CODE_SIGN_FLAGS="--keychain $(KEYCHAIN_PATH)" \
-		PROVISIONING_PROFILE_SPECIFIER=$(PROVISIONING_PROFILE_UUID_MACOS) \
 		DEVELOPMENT_TEAM=$(TEAM_ID) \
-		CODE_SIGN_STYLE="Manual" \
+		CODE_SIGN_STYLE="Automatic" \
 		clean archive
 
 ios: core provisioning
@@ -88,9 +87,8 @@ ios: core provisioning
 		-destination generic/platform=iOS \
 		CODE_SIGN_IDENTITY=$(CODESIGN_IDENTITY) \
 		OTHER_CODE_SIGN_FLAGS="--keychain $(KEYCHAIN_PATH)" \
-		PROVISIONING_PROFILE_SPECIFIER=$(PROVISIONING_PROFILE_UUID_IOS) \
 		DEVELOPMENT_TEAM=$(TEAM_ID) \
-		CODE_SIGN_STYLE="Manual" \
+		CODE_SIGN_STYLE="Automatic" \
 		clean archive
 
 cleanup:
