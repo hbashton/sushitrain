@@ -64,8 +64,7 @@ endif
 	cp ./Assets/synctrain-macos-ci.provisionprofile $(PROVISIONING_PROFILE_PATH_MACOS)
 	ls -la ~/Library/MobileDevice/Provisioning\ Profiles
 
-	mkdir -p ~/.appstoreconnect/private_keys
-	echo "${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}" > ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}.p8
+	
 
 mac: core provisioning
 	# Build .app
@@ -83,6 +82,11 @@ mac: core provisioning
 
 ios: core provisioning
 	# Build archive
+	mkdir -p ~/.appstoreconnect/private_keys
+	echo "${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}" > ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}.p8
+	export APP_STORE_CONNECT_API_KEY_PATH="./AuthKey.p8"
+	export APP_STORE_CONNECT_API_KEY_ISSUER_ID=$$APP_STORE_CONNECT_API_KEY_ISSUER_ID
+	export APP_STORE_CONNECT_API_KEY_KEY_ID=$$APP_STORE_CONNECT_API_KEY_KEY_ID
 	xcodebuild -scheme "Synctrain release" \
 		-archivePath "$(BUILD_DIR)/synctrain-ios.xcarchive" \
 		-sdk iphoneos \
