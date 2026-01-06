@@ -15,7 +15,7 @@ lint: Sushitrain/*.swift
 
 BUILD_DIR=$(shell pwd)/Build
 KEYCHAIN_PATH=$(BUILD_DIR)/keychain.db
-CODESIGN_IDENTITY="Apple Development: Tommy van der Vorst (NG3J47D2S7)"
+CODESIGN_IDENTITY="Apple Development"
 KEYCHAIN_PASSWORD="not so secret"
 
 # Apple developer team ID (must match certificate and provisioning profile)
