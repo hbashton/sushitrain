@@ -84,6 +84,7 @@ ios: core provisioning
 		-archivePath "$(BUILD_DIR)/synctrain-ios.xcarchive" \
 		-sdk iphoneos \
 		-configuration Release \
+		-allowProvisioningUpdates \
 		-destination generic/platform=iOS \
 		CODE_SIGN_IDENTITY=$(CODESIGN_IDENTITY) \
 		OTHER_CODE_SIGN_FLAGS="--keychain $(KEYCHAIN_PATH)" \
