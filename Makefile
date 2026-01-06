@@ -64,6 +64,9 @@ endif
 	cp ./Assets/synctrain-macos-ci.provisionprofile $(PROVISIONING_PROFILE_PATH_MACOS)
 	ls -la ~/Library/MobileDevice/Provisioning\ Profiles
 
+    mkdir -p ~/.appstoreconnect/private_keys
+    echo "${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}" > ~/.appstoreconnect/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}.p8
+
 mac: core provisioning
 	# Build .app
 	plutil -remove "com\.apple\.developer\.device-information\.user-assigned-device-name" Sushitrain/Sushitrain.entitlements
